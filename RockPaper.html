@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Basic coding</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <script>
+        function playRound(playerSelection, computerSelection) {
+            // your code here!
+            //turn it to lowercase
+            let redidSelection = playerSelection.toLowerCase();
+            //
+
+            if (redidSelection == computerSelection) {
+                console.log("Tie!" + " both of you picked: " + redidSelection);
+            }
+            else if (redidSelection == 'rock') {
+                if (computerSelection == 'paper') {
+                    console.log("Computer wins!");
+                }
+                else {
+                    console.log("You win!");
+                    ++tally;
+                }
+
+            }
+            else if (redidSelection == 'paper') {
+                if (computerSelection == 'rock') {
+                    console.log("You win!");
+                    ++tally;
+                }
+                else {
+                    console.log("Computer wins!");
+                }
+
+            }
+            else {
+                if (computerSelection == 'rock') {
+                    console.log("Computer wins!");
+                }
+                else {
+                    console.log("You win!");
+                    ++tally;
+                }
+
+            }
+        }
+
+        function computerPlay() {
+            let x = Math.floor((Math.random() * 3) + 1);
+            let rock = 'rock';
+            let paper = 'paper';
+            let scissors = 'scissors';
+
+            if (x == 1) {
+                return rock;
+            }
+            else if (x == 2) {
+                return paper;
+            }
+            else {
+                return scissors;
+            }
+        }
+
+
+
+        let tally = 0;
+        for (let i = 1; i <= 5; ++i) {
+            console.log("--------"+ " Round: " + i +" --------");
+            const playerSelection = prompt("Round: " + i +" of 5. Please enter rock, paper, or scissors.");
+            
+            //computer random choice.
+            const computerSelection = computerPlay();
+
+            //game algorithm
+
+            playRound(playerSelection, computerSelection);
+
+            
+
+            //choices we chose.
+            console.log(computerSelection + " is what the computer chose.");
+            console.log(playerSelection + " is what you chose.");
+            console.log("");
+
+        }
+        console.log("You scored " + tally + " out of 5.");
+        if(tally > 3)
+        {
+            console.log(".: You won! :.")
+        }
+        else
+        {
+            console.log(".: You lost. :.")
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
